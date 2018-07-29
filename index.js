@@ -28,6 +28,6 @@ bot.on('message', message => {
 
 
 
-  let prefix = ""
+  let prefix = "|"
 
-  if (bot.user.id === message.author.id) {return}
+})
