@@ -14,7 +14,7 @@ bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready", () => {
     console.log("Online ✔")
-    bot.user.setGame("Waits for instructions");
+    bot.user.setGame("waits for instructions");
 });
 
 
@@ -29,5 +29,18 @@ bot.on('message', message => {
 
 
   let prefix = "§"
+
+
+  if (msg === prefix + 'help'){
+
+
+    var help_embed = new Discord.RichEmbed()
+    .setColor("#FF1493")
+    .setTitle("My instructions : ")
+    .addField("§help", "Show my instructions")
+    .setFooter("End of the list")
+    message.channel.sendMessage(help_embed);
+    console.log("Commands")
+}
 
 })
