@@ -30,34 +30,6 @@ bot.on('message', message => {
 
   let prefix = "§"
 
-// KICK ////////////////////////////////////////////////////////
-
-
-if (msg === prefix + 'kick') {
-
-
-  let kUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
-  if(!kUser) return message.channel.send("Can't find user, sorry Master.");
-  let kReason = args.join(" ").slice(22);
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("I don't have the rights.")
-  if(kUser.hasPermission) return mesage.channel.send("I can't Kick an Administrator.")
-
-  let kickEmbed = new Discord.RichEmbed()
-  .setDescription("§ KICK §")
-  .setColor("#FF0000")
-  .addField(`${kUser}`, "has been kicked", )
-  .addField("Kicked by", `@${message.author.id}` )
-  .addField("Reason", kReason);
-
-  let kickChannel = message.guild.channels.find(`name`, "incidents");
-  if(!kickChannel) return message.channel.send("Can't find incidents channel.")
-
-
-  message.guild.member(kUser).kick(kReason);
-  kickChannel.send(kickEmbed);
-
-  return;
-}
 
   if (msg === prefix + 'help'){
 
