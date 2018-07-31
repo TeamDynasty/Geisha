@@ -28,8 +28,6 @@ bot.on('message', message => {
 
 
 
-
-
-
-
   let prefix = "§"
+
+})
