@@ -36,18 +36,18 @@ bot.on('message', message => {
     var help_embed = new Discord.RichEmbed()
     .setColor("#FF1493")
     .setTitle("The rules : ")
-    .addField("- Do not insult users as well as the staff of the server.")
-    .addField("- The repetition of a word or character will be considered spam if it exceeds 5 times in 5 min.")
-    .addField("- Spam is not alowed.")
-    .addField("- Users who abuse their roles will be warned and banned after 5 MANUAL warnings.")
-    .addField("- Do not respond to Bots.")
-    .addField("- No ads on the different channels and no link.")
-    .addField("- Your username must not be similar to that of a staff member.")
-    .addField("- Do not send pornographic comments.")
-    .addField("- For a simple request, address directly to the administrators if present or for an important request address to the Founder in private message.")
+    .addField("- Do not insult users as well as the staff of the server.", " ")
+    .addField("- The repetition of a word or character will be considered spam if it exceeds 5 times in 5 min.", " ")
+    .addField("- Spam is not alowed.", " ")
+    .addField("- Users who abuse their roles will be warned and banned after 5 MANUAL warnings.", " ")
+    .addField("- Do not respond to Bots.", " ")
+    .addField("- No ads on the different channels and no link.", " ")
+    .addField("- Your username must not be similar to that of a staff member.", " ")
+    .addField("- Do not send pornographic comments.", " ")
+    .addField("- For a simple request, address directly to the administrators if present or for an important request address to the Founder in private message.", " ")
     .setFooter("Enjoy")
     message.channel.sendMessage(help_embed);
-    console.log("Commands")
+    console.log("Rules")
 }
 
 
