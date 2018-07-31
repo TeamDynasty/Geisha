@@ -3,6 +3,7 @@
 
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const db = require('quick.db')
 const fs = require('fs');
 const moment = require('moment');
 
@@ -26,8 +27,24 @@ bot.on('message', message => {
   let msg = message.content;
   let msgu = message.content.toUpperCase();
 
+// MESSAGES SENT /////////////////////////////////////
+
+  db.updateValue(`messageSent_${message.author.id}`, 1);
 
 
-  let prefix = "|"
 
-})
+
+
+  let prefix = "§"
+
+  if(msg === prefix + "command"){
+      var help_embed = new Discord.RichEmbed()
+      .setColor("#FF0000")
+      .setTitle("Commands list : ")
+      .addField("$cmd", "Show bot commands")
+      .setFooter("End of the list")
+      message.channel.sendMessage(help_embed);
+      console.log("Commands")
+  }
+
+});
