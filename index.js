@@ -27,15 +27,17 @@ bot.on('message', message => {
   let msg = message.content;
   let msgu = message.content.toUpperCase();
 
-// MESSAGES SENT /////////////////////////////////////
 
-  db.updateValue(`messageSent_${message.author.id}`, 1);
 
 
 
 
 
   let prefix = "§"
+
+  // MESSAGES SENT /////////////////////////////////////
+
+    db.updateValue(`messageSent_${message.author.id}`, 1);
 
   if(msg === prefix + "command"){
       var help_embed = new Discord.RichEmbed()
