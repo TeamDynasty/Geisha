@@ -35,9 +35,6 @@ bot.on('message', message => {
 
   let prefix = "§"
 
-  // MESSAGES SENT /////////////////////////////////////
-
-    db.updateValue(`messageSent_${message.author.id}`, 1);
 
   if(msg === prefix + "command"){
       var help_embed = new Discord.RichEmbed()
