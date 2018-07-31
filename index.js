@@ -34,16 +34,3 @@ bot.on('message', message => {
 
 
   let prefix = "§"
-
-
-  if(msg === prefix + "command"){
-      var help_embed = new Discord.RichEmbed()
-      .setColor("#FF0000")
-      .setTitle("Commands list : ")
-      .addField("$cmd", "Show bot commands")
-      .setFooter("End of the list")
-      message.channel.sendMessage(help_embed);
-      console.log("Commands")
-  }
-
-});
