@@ -60,6 +60,7 @@ bot.on('message', message => {
     .setColor("#FF1493")
     .setTitle("My instructions : ")
     .addField("§help", "Show my instructions")
+    .addField("§rules", "Show the rules of the server")
     .setFooter("Ask me Master")
     message.channel.sendMessage(help_embed);
     console.log("Commands")
