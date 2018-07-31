@@ -3,7 +3,6 @@
 
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const db = require('quick.db')
 const fs = require('fs');
 const moment = require('moment');
 
