@@ -7,8 +7,8 @@
 
 - Prefix : §
 
-```COMMANDS :
-
+- COMMANDS :
+```
 - help : Show the commands list
 - rules : Show the rules of the server
 
