@@ -30,7 +30,11 @@ bot.on('message', message => {
 
   let prefix = "§"
   
-    
+  
+    if (msg === 'bite', 'anal', 'ass'){
+    message.channel.send("WORD BLACKLISTED")
+  }
+
     
     
      
