@@ -29,6 +29,25 @@ bot.on('message', message => {
 
 
   let prefix = "§"
+  let blacklist = ['bite', 'BITE', 'b i t e'];
+
+  let foundInText = false
+  for (var i blacklist) {
+    if (message.content.toLowerCase().includes(blacklist[i].toLowerCase())) foundInText = true;
+  }
+
+  if(foundInText) {
+    message.delete();
+    message.channel.send('This word is blacklisted')
+  }
+    
+    
+    
+    
+    
+    
+    
+    
 
   if (msg === prefix + 'rules'){
 
