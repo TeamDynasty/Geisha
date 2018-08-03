@@ -30,7 +30,7 @@ if(msg === prefix + 'dog') {
 let {body} = await superagent
 .get(`https://random.dog/woof.json`);
 
-let dogembed = new discord.RichEmbed
+let dogembed = new discord.RichEmbed()
 .setColor("#FF1493")
 .setTitle("A kawaii Dog")
 .setImage(body.url);
