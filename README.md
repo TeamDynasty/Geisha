@@ -21,7 +21,7 @@
 ## Installation
 
 **Node.js 8.0.0 or newer is required.** 
-**Packages : 
+**Packages : **
 ```
 npm install discord.js
 npm install moment
