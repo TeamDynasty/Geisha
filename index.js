@@ -43,10 +43,6 @@ client.on("guildMemberAdd", member => {
 
 })
 
-client.on("guildMemberRemove", => {
-
-})
-
  // RULES /////////////////////////////////////////////////////////
     
   if (msg === prefix + 'rules'){
