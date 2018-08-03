@@ -3,6 +3,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
 const moment = require('moment');
 
 
