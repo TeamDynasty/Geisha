@@ -34,9 +34,9 @@ let dogembed = new discord.RichEmbed()
 .setColor("#FF1493")
 .setTitle("A kawaii Dog")
 .setImage(body.url);
+message.channel.send(dogembed);
 }
 
-message.channel.send(dogembed);
 
 
 
