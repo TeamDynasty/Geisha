@@ -43,6 +43,9 @@ let dogembed = new Discord.RichEmbed()
 .setImage(body.url);
   message.channel.send(dogembed)
 }
+module.exports.help = {
+  name: 'dog'
+}
 }
 
  // RULES /////////////////////////////////////////////////////////
