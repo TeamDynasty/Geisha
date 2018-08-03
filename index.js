@@ -4,7 +4,9 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
+const ms = require('ms');
 const moment = require('moment');
+const superagent = require('superagent');
 
 
 // CONNEXION ///////////////////////////////////////////////////
