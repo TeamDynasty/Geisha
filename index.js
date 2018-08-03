@@ -44,8 +44,12 @@ if(msg === prefix + 'dog') {
 
 
 
-  message.channel.send(dogembed)
+    message.channel.send(dogembed)
 
+}
+
+module.exports.help = {
+  name: "dog"
 }
 
   
