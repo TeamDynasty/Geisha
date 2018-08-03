@@ -30,26 +30,6 @@ bot.on('message', message => {
 
   let prefix = "§"
   
-    // REPORT ///////////////////////////////////////////////////
-
-if(msg === prefix + 'report') {
-
-  let reportEmbed = new Discord.RichEmbed()
-  .setColor("#FF1493")
-  .setTitle("REPORT :")
-  .addField("Reported User", `${message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]))}`)
-  .addField("Reported by", `${message.author}`);
-
-  let reportschannel = message.guild.channel.find(`name`, "incidents");
-  if(!reportschannel) return message.channel.send("I can't find the channel for reports");
-
-  message.delete().catch(O_o=>{});
-  reportschannel.send(reportEmbed);
-
-
-  return;
-}
-
 
 
  // RULES /////////////////////////////////////////////////////////
