@@ -31,18 +31,6 @@ bot.on('message', message => {
 
   let prefix = "§"
   
-  
-  bot.on('guildCreate', guild => {
-  bot.channels.find("name", "incidents").send({embed: {
-    color: 3447003,
-    author: {
-      name: bot.user.username,
-    },
-    title: "Who am i ?",
-    description: "I'm the assistant on this server. If you whant something, ask me, my prefix is : § and my commands : §help. So, what are you waiting for master ?"
-  }});
-})
-
 
 
 // RULES /////////////////////////////////////////////////////////
