@@ -34,17 +34,11 @@ bot.on('message', message => {
 
 if(msg === prefix + 'report') {
 
-  let rUser = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]));
-  if(!rUser) return message.channel.send("I can't find the user");
-  let reason = args.join(" ").slice(22);
-
   let reportEmbed = new Discord.RichEmbed()
   .setColor("#FF1493")
   .setTitle("REPORT :")
-  .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-  .addField("Reported by", `${message.author} with ID: ${message.author.id}`)
-  .addField("Time", message.createdAt)
-  .addField("Reason", reason);
+  .addField("Reported User", `${message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]))}`)
+  .addField("Reported by", `${message.author}`);
 
   let reportschannel = message.guild.channel.find(`name`, "incidents");
   if(!reportschannel) return message.channel.send("I can't find the channel for reports");
