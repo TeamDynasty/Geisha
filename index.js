@@ -27,6 +27,7 @@ bot.on('message', message => {
   // DOG ///////////////////////////////////////////////////////////
 
 if(msg === prefix + 'dog') {
+  return message.channel.send("pong");
 let {body} = await superagent
 .get(`https://random.dog/woof.json`);
 
