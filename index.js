@@ -30,7 +30,22 @@ bot.on('message', message => {
 
   let prefix = "§"
   
+// JOIN LEAVE ////////////////////////////////////////////////////
 
+client.on("guildMemberAdd", member => {
+
+  var rolebaby = member.guild.role.find("name", "Babymaster");
+  var roleelite = member.guild.role.find("name", "Elitemaster");
+  var rolesamurai = member.guild.role.find("name", "Samuraimaster");
+  var rolelegendary = member.guild.role.find("name", "Legendarymaster");
+
+  member.addRole (rolebaby);
+
+})
+
+client.on("guildMemberRemove", => {
+
+})
 
  // RULES /////////////////////////////////////////////////////////
     
