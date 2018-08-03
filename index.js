@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
-
+let args = messageArray.slice[1];
 
 bot.login(process.env.BOT_TOKEN);
 
@@ -23,6 +23,36 @@ bot.on('message', message => {
   let msgu = message.content.toUpperCase();
 
   let prefix = "§"
+
+if(msg === prefix + 'kick') {
+
+  let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!kUser) return message.channel.send("Can't find this user");
+  let kReason = args.join(" ").slice(22);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("I don't have the rights");
+  if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be ban");
+
+
+  let kickembed = new Discord.RichEmbed()
+  .setDescription("~ KICK ~")
+  .setColor("#FF1493")
+  .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+  .addField("Kicked by", `<@${message.author.id}> with ID ${message.author.id}`)
+  .addField("Kicked in", message.channel)
+  .addField("Time", message.createdAt)
+  .addField("Reason", kReason);
+
+  let kickedChannel = message.guild.channels.find(`name`, "incidents");
+  if(!kickedChannel) return message.channel.send("Can't find the channel incidents");
+
+  message.guild.member(kUser).kick(kReason);
+  kickedChannel.send(kickembed);
+
+  return;
+
+}
+
+
 
 
 
