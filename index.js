@@ -30,6 +30,18 @@ bot.on('message', message => {
 
   let prefix = "§"
   
+  // RANDOM /////////////////////////////////////////////////////////
+
+  if(msg === prefix + "cat") {
+    const { body } = await superagent
+    .get ('http://aws.random.cat/meow')
+    const embed = new Discord.RichEmbed
+    .setColor("#FF1493")
+    .setTitle("A kawaii cat 😻")
+    .addImage(body.file)
+    message.channel.send({embed})
+  }
+
 
  // RULES /////////////////////////////////////////////////////////
     
