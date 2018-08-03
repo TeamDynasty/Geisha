@@ -30,6 +30,25 @@ bot.on('message', message => {
 
   let prefix = "§"
   
+  
+  // DOG ////////////////////////////////////////////////////////
+
+let {body} = await superagent
+.get('https://random.dog/woof.json')
+let dogembed = new Discord.RichEmbed()
+.setColor("#FF1493")
+.setTitle("A kawaii Dog 🐕")
+.setImage(body.url);
+
+if(msg === prefix + 'dog') {
+
+
+
+  message.channel.send(dogembed)
+
+}
+
+  
  
     
     
