@@ -1,5 +1,4 @@
-// VARIABLES ///////////////////////////////////////////////////
-// ADRESSE //// https://discordapp.com/oauth2/authorize?client_id=473232322129428500&scope=bot&permissions=445440
+// CONNEXION ///////////////////////////////////////////////////
 
 const Discord = require('discord.js');
 const bot = new Discord.Client();
@@ -7,16 +6,12 @@ const fs = require('fs');
 const moment = require('moment');
 
 
-
-// CONNEXION ///////////////////////////////////////////////////
-
-
 bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready", () => {
     console.log("Online ✔")
-    bot.user.setGame("watching for instructions.");
-});
+    bot.user.setGame("waits for instructions");
+
 
 
 // VARIABLES ///////////////////////////////////////////////////
@@ -27,10 +22,38 @@ bot.on('message', message => {
   let msg = message.content;
   let msgu = message.content.toUpperCase();
 
-
-
   let prefix = "§"
-  
+
+if(msg === prefix + 'kick') {
+
+  let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!kUser) return message.channel.send("Can't find this user");
+  let kReason = args.join(" ").slice(22);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("I don't have the rights");
+  if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be ban");
+
+
+  let kickembed = new Discord.RichEmbed()
+  .setDescription("~ KICK ~")
+  .setColor("#FF1493")
+  .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+  .addField("Kicked by", `<@${message.author.id}> with ID ${message.author.id}`)
+  .addField("Kicked in", message.channel)
+  .addField("Time", message.createdAt)
+  .addField("Reason", kReason);
+
+  let kickedChannel = message.guild.channels.find(`name`, "incidents");
+  if(!kickedChannel) return message.channel.send("Can't find the channel incidents");
+
+  message.guild.member(kUser).kick(kReason);
+  kickedChannel.send(kickembed);
+
+  return;
+
+}
+
+
+
 
 
 // RULES /////////////////////////////////////////////////////////
@@ -72,3 +95,4 @@ bot.on('message', message => {
 }
 
 })
+});
