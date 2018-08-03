@@ -34,7 +34,7 @@ bot.on('message', message => {
   // DOG ////////////////////////////////////////////////////////
 
 if(msg === prefix + 'dog') {
-
+module.exports.run = async (bot,message,args) => {
 let {body} = await superagent
 .get('https://random.dog/woof.json')
 let dogembed = new Discord.RichEmbed()
@@ -42,7 +42,7 @@ let dogembed = new Discord.RichEmbed()
 .setTitle("A kawaii Dog 🐕")
 .setImage(body.url);
   message.channel.send(dogembed)
-
+}
 }
 
  // RULES /////////////////////////////////////////////////////////
