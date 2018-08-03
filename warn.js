@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Number of Warns", warns[wUser.id].warns)
   .addField("Reason", reason);
 
-  let warnchannel = message.guild.channels.find(`name`, "incidents");
+  let warnchannel = message.guild.channels.find(`name`, "incident");
   if(!warnchannel) return message.reply("I can't find the channel");
 
   warnchannel.send(warnEmbed)
