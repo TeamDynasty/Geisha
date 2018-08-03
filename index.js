@@ -14,7 +14,7 @@ bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready", () => {
     console.log("Online ✔")
-    bot.user.setActivity("for instructions.", {type: WATCHING});
+    bot.user.setGame("watching for instructions.");
 });
 
 
