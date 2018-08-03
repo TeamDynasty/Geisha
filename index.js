@@ -6,7 +6,6 @@ const bot = new Discord.Client();
 const fs = require('fs');
 const ms = require('ms');
 const moment = require('moment');
-const superagent = require('superagent');
 
 
 // CONNEXION ///////////////////////////////////////////////////
@@ -32,17 +31,6 @@ bot.on('message', message => {
 
   let prefix = "§"
   
-  // RANDOM /////////////////////////////////////////////////////////
-
-  if(msg === prefix + "cat") {
-    const { body } = await superagent
-    .get ('http://aws.random.cat/meow')
-    const embed = new Discord.RichEmbed
-    .setColor("#FF1493")
-    .setTitle("A kawaii cat 😻")
-    .addImage(body.file)
-    message.channel.send({embed})
-  }
 
 
  // RULES /////////////////////////////////////////////////////////
