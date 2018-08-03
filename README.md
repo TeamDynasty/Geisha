@@ -29,6 +29,10 @@ npm install moment
 ```
 
 
+## Help
+Don't hesitate to join our official, if you have questions or if you whant to join :/ 
+[Discord.js Server](https://discord.gg/jnMnxXe).
+
 
 ## Links
 * [Discord](https://discord.gg/jnMnxXe)
