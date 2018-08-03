@@ -17,6 +17,20 @@
 
 - Autopresentation when someone join the server
 
+
+## Installation
+
+**Node.js 8.0.0 or newer is required.** 
+**Packages : 
+```
+npm install discord.js
+npm install moment
+```
+
+
+
 ## Links
 * [Discord](https://discord.gg/jnMnxXe)
+
+
 
