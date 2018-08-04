@@ -4,7 +4,6 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
-const superagent = require("superagent");
 
 bot.login(process.env.BOT_TOKEN);
 
