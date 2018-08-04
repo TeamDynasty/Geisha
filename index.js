@@ -24,21 +24,6 @@ bot.on('message', message => {
 
   let prefix = "§"
 
-  // DOG ///////////////////////////////////////////////////////////
-
-if(msg === prefix + 'dog') {
-  return message.channel.send("pong");
-let {body} = await superagent
-.get(`https://random.dog/woof.json`);
-
-let dogembed = new Discord.RichEmbed()
-.setColor("#FF1493")
-.setTitle("A kawaii Dog")
-.setImage(body.url);
-message.channel.send(dogembed);
-}
-
-
 
 
 // RULES /////////////////////////////////////////////////////////
