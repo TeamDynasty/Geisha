@@ -4,7 +4,6 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
-const superagent = require("superagent");
 
 bot.login(process.env.BOT_TOKEN);
 
@@ -23,22 +22,6 @@ bot.on('message', message => {
   let msgu = message.content.toUpperCase();
 
   let prefix = "§"
-
-
-// DOG ///////////////////////////////////////////////////////////
-
-if(msg === prefix + 'dog') {
-  return message.channel.send("pong");
-let {body} = await superagent
-.get(`https://random.dog/woof.json`);
-
-let help_embed = new Discord.RichEmbed()
-.setColor("#FF1493")
-.setTitle("A kawaii Dog")
-.setImage(body.url);
-message.channel.send(help_embed);
-}
-
 
 
 // RULES /////////////////////////////////////////////////////////
