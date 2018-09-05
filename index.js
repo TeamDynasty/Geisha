@@ -34,9 +34,6 @@ bot.on('message', message => {
     async function purge() {
       message.delete();
 
-      if (message.member.roles.find("name", "Développeur")) {
-        return;
-      }
 
 
 
