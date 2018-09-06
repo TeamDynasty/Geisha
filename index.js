@@ -21,10 +21,6 @@ bot.on("message", async message => {
 
   if(cmd === `${prefix}help`){
     message.channel.send("Comment puis-je vous aider ?");
-    message.channel.send("Voici la liste des commandes : ");
-    message.channel.send("help : Affiche la liste des commandes");
-    message.channel.send("botinfo : Affiche les informations sur le bot Geisha");
-    return;
   }
 
   if(cmd === `${prefix}botinfo`){
