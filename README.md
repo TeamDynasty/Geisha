@@ -5,7 +5,7 @@
 
 ## Informations :
 
-- Prefix : §
+- Prefix : >
 
 - COMMANDS :
 ```
