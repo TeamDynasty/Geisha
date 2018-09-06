@@ -20,7 +20,7 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if(cmd === `${prefix}help`){
-    message.channel.send("Comment puis-je vous aider ?");
+    return message.channel.send("Comment puis-je vous aider ?");
   }
 
   if(cmd === `${prefix}botinfo`){
