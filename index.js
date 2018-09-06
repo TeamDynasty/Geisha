@@ -22,6 +22,9 @@ bot.on("message", async message => {
     return message.channel.send("Comment puis-je vous aider ?");
   }
 
+
+// BOT INFO
+
   if(cmd === `${prefix}botinfo`){
 
     let botembed = new Discord.Richembed()
@@ -32,6 +35,7 @@ bot.on("message", async message => {
     .addField("Version ", "0.1")
 
     return message.channel.send(botembed);
+    return;
   }
 
 
