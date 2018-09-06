@@ -26,8 +26,7 @@ bot.on("message", async message => {
 
     let botembed = new Discord.Richembed()
     .setDescription("Information de Geisha")
-    .setColor("#FB0700")
-    .addField("Nom du bot", bot.user.username)
+    .setColor("#fb0700")
     .addField("Codé en", "JavaScript")
     .addField("Codé par", "Neotoxic")
     .addField("Version ", "0.1")
