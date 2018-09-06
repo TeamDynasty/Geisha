@@ -20,24 +20,18 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if(cmd === `${prefix}help`){
-
-    let botcommands = new Discord.Richembed()
-    .setDescription("Comment puis-je vous aider ?")
-    .setColor("#FB0700")
-    .addField("Prefix :", ">")
-    .addField("help :", "Affiche la liste des commandes")
-    .addField("botinfo","Affiche les information sur le bot Geisha")
-
-    return message.channel.send(botcommands)
+    message.channel.send("Comment puis-je vous aider ?");
+    message.channel.send("Voici la liste des commandes : ");
+    message.channel.send("help : Affiche la liste des commandes");
+    message.channel.send("botinfo : Affiche les informations sur le bot Geisha");
+    return;
   }
 
   if(cmd === `${prefix}botinfo`){
 
-    let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.Richembed()
     .setDescription("Information de Geisha")
     .setColor("#FB0700")
-    .setThumbnail(bicon)
     .addField("Nom du bot", bot.user.username)
     .addField("Codé en", "JavaScript")
     .addField("Codé par", "Neotoxic")
@@ -48,5 +42,6 @@ bot.on("message", async message => {
 
 
 });
+
 
 bot.login(process.env.BOT_TOKEN);
