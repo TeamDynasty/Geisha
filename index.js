@@ -49,17 +49,4 @@ bot.on("message", async message => {
 
 });
 
-
-module.exports.run = async (bot,message,args) => {
-  let {body} = await superagent
-  .get(`https://random.dog/woof.json`);
-
-  let dogembed = new Discord.RichEmbed()
-  .setColor("#FB0700")
-  .setTitle("Chien")
-  .setImage(body.url);
-
-  message.channel.send(dogembed);
-}
-
 bot.login(process.env.BOT_TOKEN);
