@@ -68,6 +68,11 @@ bot.on("message", async message => {
     return message.channel.send(linksembed);
   }
 
+
+  try {
+
+
+
   if(cmd === `${prefix}rules`){
 
     let rulesembed = new Discord.RichEmbed()
@@ -80,7 +85,9 @@ bot.on("message", async message => {
 
     return message.channel.send(rulesembed);
   }
-
+} catch(e) {
+message.reply(e.toString());
+}
 
 
 
