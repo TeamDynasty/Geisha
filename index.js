@@ -50,7 +50,7 @@ bot.on("message", async message => {
 
 
 
-
+  try {
 
 
   if(cmd === `${prefix}links`){
@@ -58,15 +58,19 @@ bot.on("message", async message => {
     let linksembed = new Discord.RichEmbed()
     .setTitle("Liens Utiles")
     .setColor("#fb0700")
-    .addField("+-------- CRACKS --------+"," ")
+    .addField("+-------- CRACKS --------+","***")
     .addField("Crack de jeux", "https://cracked-games.org/")
     .addField("Statut des cracks des jeux", "https://crackwatch.com/")
-    .addField("+-------- COURS --------+"," ")
+    .addField("+-------- COURS --------+","***")
     .addField("Cours de l'année", "https://github.com/TeamDynasty/IUT-Doua")
     .addField("Cours des années précedentes", "https://repo.kuro.ml/courses-s1.git/")
 
     return message.channel.send(linksembed);
   }
+} catch(e) {
+message.reply(e.toString());
+}
+
 
 
   try {
@@ -78,10 +82,10 @@ bot.on("message", async message => {
     let rulesembed = new Discord.RichEmbed()
     .setTitle("Liste des Règles du Serveur")
     .setColor("#fb0700")
-    .addField("Ne doit pas avoir de caractère pornographique sauf dans le channel dédié.", " ")
-    .addField("Restez courtois, poli.", " ")
-    .addField("Pas de spam.", " ")
-    .addField("Pas de pub sur les différents chats sauf celui #pub.", " ")
+    .addField("Ne doit pas avoir de caractère pornographique sauf dans le channel dédié.", "***")
+    .addField("Restez courtois, poli.", "***")
+    .addField("Pas de spam.", "***")
+    .addField("Pas de pub sur les différents chats sauf celui #pub.", "***")
 
     return message.channel.send(rulesembed);
   }
