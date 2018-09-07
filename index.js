@@ -19,16 +19,27 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if(cmd === `${prefix}help`){
-    return message.channel.send("Comment puis-je vous aider ?");
+
+    let cmdembed = new Discord.RichEmbed()
+    .setDescription("Comment puis-je vous aider ?")
+    .setColor("#fb0700")
+    .addTitle("Liste des commandes")
+    .addField("help", "Affiche la liste des commandes possibles")
+    .addField("rules", "Affiche les règles du serveur")
+
+    return message.channel.send(cmdembed);
   }
+
+
 
 
 // BOT INFO
 
+
   if(cmd === `${prefix}botinfo`){
 
     let botembed = new Discord.RichEmbed()
-    .setDescription("Information de Geisha")
+    .setDescription("Informations à propos de Geisha")
     .setColor("#fb0700")
     .addField("Codé en", "JavaScript")
     .addField("Codé par", "Neotoxic")
