@@ -6,7 +6,7 @@ const bot = new Discord.Client();
 
 bot.on("Online", async () => {
   console.log(`${bot.user.username} is online`);
-  bot.user.setGame("attends les ordres ✔️")
+  bot.user.setActivity("attends les ordres ✔️", {type: "WATCHING"});
 });
 
 bot.on("message", async message => {
@@ -35,7 +35,6 @@ bot.on("message", async message => {
     .addField("Version ", "0.1")
 
     return message.channel.send(botembed);
-    return;
   }
 
 
