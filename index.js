@@ -27,7 +27,7 @@ bot.on("message", async message => {
 
   if(cmd === `${prefix}botinfo`){
 
-    let botembed = new Discord.Richembed()
+    let botembed = new Discord.RichEmbed()
     .setDescription("Information de Geisha")
     .setColor("#fb0700")
     .addField("Codé en", "JavaScript")
