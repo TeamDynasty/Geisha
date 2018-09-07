@@ -11,7 +11,8 @@
 ```
 - help : Show the commands list
 - rules : Show the rules of the server
-
+- links : Show some usefull links
+- botinfo : Show info anout Geisha
 
 ```
 
