@@ -23,9 +23,9 @@ bot.on("message", async message => {
     let cmdembed = new Discord.RichEmbed()
     .setDescription("Comment puis-je vous aider ?")
     .setColor("#fb0700")
-    .setTitle("Liste des commandes", "disponibles")
     .addField("help", "Affiche la liste des commandes possibles")
     .addField("rules", "Affiche les règles du serveur")
+    .addField("botinfo", "Affiche les informations sur Geisha")
 
     return message.channel.send(cmdembed);
   }
