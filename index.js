@@ -6,7 +6,9 @@ const bot = new Discord.Client();
 
 bot.on("Online", async () => {
   console.log(`${bot.user.username} is online`);
-  bot.user.setActivity("attends les ordres ✔️", {type: "WATCHING"});
+  bot.user.setActivity('attends les ordres ✔️', {type: 'WATCHING'})
+  .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+  .catch(console.error);
 });
 
 bot.on("message", async message => {
