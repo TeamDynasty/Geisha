@@ -61,6 +61,7 @@ bot.on("message", async message => {
     .addField("+-------- CRACKS --------+","***")
     .addField("Crack de jeux", "https://cracked-games.org/")
     .addField("Statut des cracks des jeux", "https://crackwatch.com/")
+    .addField("Tous les sites débloqués", "https://unblocked.vet/")
     .addField("+-------- COURS --------+","***")
     .addField("Cours de l'année", "https://github.com/TeamDynasty/IUT-Doua")
     .addField("Cours des années précedentes", "https://repo.kuro.ml/courses-s1.git/")
