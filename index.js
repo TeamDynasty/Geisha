@@ -46,7 +46,7 @@ bot.on("message", async message => {
 
   // MONEY ///////////////////////////////////////////////////
 
-  if (msgu === prefix + 'money' || msgu === prefix + 'balance') {
+  if (msg === prefix + 'money') {
     message.channel.send({
       embed:{
         title: "Bank",
