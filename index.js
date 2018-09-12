@@ -1,7 +1,6 @@
 // CONNEXION ///////////////////////////////////////////////////
 
 const botconfig = require("./botconfig.json")
-const items = JSON.parse(fs.readFileSync('items.json', 'utf8'));
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
@@ -126,75 +125,6 @@ bot.on("message", async message => {
       }
     });
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  try {
-
-  if (msg === prefix + 'buy') {
-
-    let category = [];
-
-    if (!args.join(" ")) {
-
-      for (var i in items) {
-
-        if (!category.includes(items[i].type))
-        category.push(items[i].type)
-
-      }
-
-    }
-
-    const embed = new Discord.RichEmbed()
-    .setDescription("Produits disponibles")
-    .setColor("#fb0700")
-
-    var tempDesc = '';
-
-    for (var i = 0; i < category.lenght; i++) {
-      if (category[i] === items[c].type) {
-        tempDesc += `${items[c].name} - $${items[c].price} - ${items[c].desc}\n`;
-      }
-    }
-
-    embed.addField(category[i], tempDesc);
-
-  }
-  message.channel.send({embed})
-
-} catch(e) {
-  message.reply(e.toString());
-}
-
-
-
-
-
-
 
 
 
