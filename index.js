@@ -4,10 +4,17 @@ const botconfig = require("./botconfig.json")
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-bot.on("Online", async () => {
-  console.log(`${bot.user.username} is online`);
-  bot.user.setActivity('attends les ordres ✔️', {type: 'WATCHING'});
-});
+// STORAGE ///////////////////////////////////////////////////
+
+let userData = JSON.parse(fs.readFileSync('Storage/userData.json', 'utf8'));
+
+
+
+
+fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
+  if (err) console.error(err);
+})
+
 
 bot.on("message", async message => {
   if(message.author.bot) return;
@@ -17,6 +24,160 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
+  let msg = message.content;
+  let msgu = message.content.toUpperCase();
+
+// CONNEXION ///////////////////////////////////////////////////
+
+bot.login(process.env.BOT_TOKEN);
+
+bot.on("ready", () => {
+    console.log("Online")
+    bot.user.setGame(">help");
+});
+
+if (bot.user.id === message.author.id) {return}
+
+// EVENT ///////////////////////////////////////////////////
+
+
+if (!userData[sender.id + message.guild.id]) userData[sender.id + message.guild.id] = {}
+if (!userData[sender.id + message.guild.id].money) userData[sender.id + message.guild.id].money = 1000;
+if (!userData[sender.id + message.guild.id].lastDaily) userData[sender.id + message.guild.id].lastDaily = 'Not Collected';
+if (!userData[sender.id + message.guild.id].username) userData[sender.id + message.guild.id].username = message.author.username;
+
+
+fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
+  if (err) console.error(err);
+})
+
+
+// MONEY ///////////////////////////////////////////////////
+
+if (msgu === prefix + 'MONEY' || msgu === prefix + 'BALANCE') {
+  message.channel.send({embed:{
+    title: "Bank",
+    color: 0xfbff00,
+    fields:[{
+      name:"Account Holder",
+      value:message.author.username,
+      inline:true
+    },
+  {
+    name:"Account Balance",
+    value:userData[sender.id + message.guild.id].money,
+    inline:true
+  }]
+  }})
+ }
+
+if (cmd === prefix + 'DAILY') {
+  if (userData[sender.id + message.guild.id].lastDaily != moment().format('L')) {
+      userData[sender.id + message.guild.id].lastDaily = moment().format('L')
+      userData[sender.id + message.guild.id].money += 500;
+      message.channel.send({embed:{
+        title:"Daily Reward",
+        color: 0x4dff00,
+        description:"You got 500$ added to your account"
+      }})
+
+  }else{
+    message.channel.send({embed:{
+      title:"Daily Reward",
+      color: 0x4dff00,
+      description:"You already claim daily reward. You can collect your next reward " + moment().endOf('day').fromNow() + '.'
+  }})
+}
+}
+
+
+
+
+if (cmd === prefix + 'GLOBAL') {
+
+var globalMoney = 0;
+var globalUsers = 0;
+var globalRichest = '';
+var globalRichest$ = 0;
+
+for (var i in userData) {
+    globalMoney += userData[i].money;
+    globalUsers += 1;
+    if (userData[i].money > globalRichest$) {
+      globalRichest$ = userData[i].money;
+      globalRichest = userData[i].username;
+    }
+}
+
+message.channel.send({embed:{
+  title: "Global Stats",
+  color: 0xff0000,
+  fields:[{
+    name:"Accounts",
+    value:globalUsers,
+    inline:true
+  },
+{
+  name:"Total Money",
+  value:globalMoney,
+  inline:true
+},
+{
+  name: "Richest Account",
+  value:`${globalRichest} with ${globalRichest$}`
+}]
+}})
+}
+
+
+
+if (cmd === prefix + 'GUILD') {
+
+var guildMoney = 0;
+var guildUsers = 0;
+var guildRichest = '';
+var guildRichest$ = 0;
+
+for (var i in userData) {
+  if (i.endsWith(message.guild.id)) {
+    guildMoney += userData[i].money;
+    guildUsers += 1;
+    if (userData[i].money > guildRichest$) {
+      guildRichest$ = userData[i].money;
+      guildRichest = userData[i].username;
+
+    }
+  }
+}
+
+message.channel.send({embed:{
+  title: "Guild Stats",
+  color: 0xff0000,
+  fields:[{
+    name:"Accounts",
+    value:guildUsers,
+    inline:true
+  },
+{
+  name:"Total Money",
+  value:guildMoney,
+  inline:true
+},
+{
+  name: "Richest Account",
+  value:`${guildRichest} with ${guildRichest$}`
+}]
+}})
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -37,6 +198,11 @@ bot.on("message", async message => {
     .addField("rules", "Affiche les règles du serveur")
     .addField("botinfo", "Affiche les informations sur Geisha")
     .addField("links", "Affiche des liens utiles")
+    .addField("money", "Affiche ton compte en banque")
+    .addField("DAILY", "Recuperer sa récompense Quotidienne")
+    .addField("GUILD", "Affiche le Boss dans le serveur")
+    .addField("GLOBAL", "Affiche le client ayant le plus, dans tous les serveurs")
+
 
     return message.channel.send(cmdembed);
   }
