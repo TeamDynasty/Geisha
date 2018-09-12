@@ -1,6 +1,7 @@
 // CONNEXION ///////////////////////////////////////////////////
 
 const botconfig = require("./botconfig.json")
+const items = JSON.parse(fs.readFileSync('items.json', 'utf8'));
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
@@ -46,7 +47,7 @@ bot.on("message", async message => {
 
   // MONEY ///////////////////////////////////////////////////
 
-  if (msgu === prefix + 'MONEY' || msgu === prefix + 'BALANCE') {
+  if (msgu === prefix + 'money' || msgu === prefix + 'balance') {
     message.channel.send({
       embed:{
         title: "Bank",
@@ -66,7 +67,7 @@ bot.on("message", async message => {
     });
   }
 
-  if (msg === prefix + 'DAILY') {
+  if (msg === prefix + 'daily') {
     if (userData[sender.id + message.guild.id].lastDaily != moment().format('L')) {
       userData[sender.id + message.guild.id].lastDaily = moment().format('L')
       userData[sender.id + message.guild.id].money += 500;
@@ -88,7 +89,7 @@ bot.on("message", async message => {
     }
   }
 
-  if (msg === prefix + 'GLOBAL') {
+  if (msg === prefix + 'global') {
 
     var globalMoney = 0;
     var globalUsers = 0;
@@ -127,7 +128,108 @@ bot.on("message", async message => {
   }
 
 
-  if (msg === prefix + 'GUILD') {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  try {
+
+  if (msg === prefix + 'buy') {
+
+    let category = [];
+
+    if (!args.join(" ")) {
+
+      for (var i in items) {
+
+        if (!category.includes(items[i].type))
+        category.push(items[i].type)
+
+      }
+
+    }
+
+    const embed = new Discord.RichEmbed()
+    .setDescription("Produits disponibles")
+    .setColor("#fb0700")
+
+    var tempDesc = '';
+
+    for (var i = 0; i < category.lenght; i++) {
+      if (category[i] === items[c].type) {
+        tempDesc += `${items[c].name} - $${items[c].price} - ${items[c].desc}\n`;
+      }
+    }
+
+    embed.addField(category[i], tempDesc);
+
+  }
+  message.channel.send({embed})
+
+} catch(e) {
+  message.reply(e.toString());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  if (msg === prefix + 'guild') {
 
     var guildMoney = 0;
     var guildUsers = 0;
