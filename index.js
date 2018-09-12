@@ -3,13 +3,13 @@
 const botconfig = require("./botconfig.json")
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const fs = require('fs');
+const moment = require('moment');
+
 
 // STORAGE ///////////////////////////////////////////////////
 
 let userData = JSON.parse(fs.readFileSync('Storage/userData.json', 'utf8'));
-
-
-
 
 fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
   if (err) console.error(err);
