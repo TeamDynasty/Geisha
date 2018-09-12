@@ -71,7 +71,7 @@ if (msgu === prefix + 'MONEY' || msgu === prefix + 'BALANCE') {
   }})
  }
 
-if (cmd === prefix + 'DAILY') {
+if (msg === prefix + 'DAILY') {
   if (userData[sender.id + message.guild.id].lastDaily != moment().format('L')) {
       userData[sender.id + message.guild.id].lastDaily = moment().format('L')
       userData[sender.id + message.guild.id].money += 500;
@@ -93,7 +93,7 @@ if (cmd === prefix + 'DAILY') {
 
 
 
-if (cmd === prefix + 'GLOBAL') {
+if (msg === prefix + 'GLOBAL') {
 
 var globalMoney = 0;
 var globalUsers = 0;
@@ -131,7 +131,7 @@ message.channel.send({embed:{
 
 
 
-if (cmd === prefix + 'GUILD') {
+if (msg === prefix + 'GUILD') {
 
 var guildMoney = 0;
 var guildUsers = 0;
