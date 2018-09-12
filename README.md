@@ -13,6 +13,10 @@
 - rules : Show the rules of the server
 - links : Show some usefull links
 - botinfo : Show info anout Geisha
+- monney : Show your current account
+- DAILY : Get your daily reward
+- GUILD : Show the Boss of the server
+- GLOBAL : Show the Boss in all the servers
 
 ```
 
