@@ -181,11 +181,11 @@ bot.on("message", async message => {
         .addField("rules", "Affiche les règles du serveur")
         .addField("botinfo", "Affiche les informations sur Geisha")
         .addField("links", "Affiche des liens utiles")
-        .addField("$money", "Show your money")
-        .addField("$DAILY", "Get your daily reward")
-        .addField("$GUILD", "Show stats about Discord's king")
-        .addField("$GLOBAL", "Show stats about Discord's king in all severs")
-        .setFooter("End of the list");
+        .addField("money", "Affiche le contenu du porte monnaie")
+        .addField("DAILY", "Recuperer sa récompense quotidienne")
+        .addField("GUILD", "Affiche le Boss du serveur")
+        .addField("GLOBAL", "Affiche le boss de tous les serveurs")
+        .setFooter("Fin de la liste pour le moment");
       message.channel.send(help_embed);
       console.log("Commands");
   }
