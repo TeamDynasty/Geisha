@@ -1,6 +1,7 @@
 // CONNEXION ///////////////////////////////////////////////////
 
 const botconfig = require("./botconfig.json")
+const items = JSON.parse(fs.readFileSync('items.json', 'utf8'));
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
@@ -46,7 +47,7 @@ bot.on("message", async message => {
 
   // MONEY ///////////////////////////////////////////////////
 
-  if (msg === prefix + 'money') {
+  if (msgu === prefix + 'money' || msgu === prefix + 'balance') {
     message.channel.send({
       embed:{
         title: "Bank",
@@ -151,6 +152,75 @@ bot.on("message", async message => {
 
 
 
+  try {
+
+  if (msg === prefix + 'buy') {
+
+    let category = [];
+
+    if (!args.join(" ")) {
+
+      for (var i in items) {
+
+        if (!category.includes(items[i].type))
+        category.push(items[i].type);
+
+      }
+
+    }
+
+    const embed = new Discord.RichEmbed()
+    .setDescription("Produits disponibles")
+    .setColor("#fb0700");
+
+    var tempDesc = '';
+
+    for (var i = 0; i < category.lenght; i++) {
+      if (category[i] === items[c].type) {
+        tempDesc += `${items[c].name} - $${items[c].price} - ${items[c].desc}\n`;
+      }
+    }
+
+    embed.addField(category[i], tempDesc);
+
+  }
+  message.channel.send({embed});
+
+} catch(e) {
+  message.reply(e.toString());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -214,9 +284,9 @@ bot.on("message", async message => {
         .addField("botinfo", "Affiche les informations sur Geisha")
         .addField("links", "Affiche des liens utiles")
         .addField("money", "Affiche le contenu du porte monnaie")
-        .addField("daily", "Recuperer sa récompense quotidienne")
-        .addField("guild", "Affiche le Boss du serveur")
-        .addField("global", "Affiche le boss de tous les serveurs")
+        .addField("DAILY", "Recuperer sa récompense quotidienne")
+        .addField("GUILD", "Affiche le Boss du serveur")
+        .addField("GLOBAL", "Affiche le boss de tous les serveurs")
         .setFooter("Fin de la liste pour le moment");
       message.channel.send(help_embed);
       console.log("Commands");
@@ -234,7 +304,7 @@ bot.on("message", async message => {
       .addField("Crack de jeux", "https://cracked-games.org/")
       .addField("Statut des cracks des jeux", "https://crackwatch.com/")
       .addField("Tous les sites débloqués", "https://unblocked.vet/")
-      .addField("+-------- COURS IUT INFORMATIQUE --------+","***")
+      .addField("+-------- COURS --------+","***")
       .addField("Cours de l'année", "https://github.com/TeamDynasty/IUT-Doua")
       .addField("Cours des années précedentes", "https://repo.kuro.ml/courses-s1.git/");
 
