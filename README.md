@@ -1,5 +1,7 @@
 ## Geisha
 
+INVITE HER : https://discordapp.com/oauth2/authorize?client_id=473232322129428500&scope=bot&permissions=268626168
+
 
 ```The assistant, who has a personnality```
 
@@ -13,6 +15,10 @@
 - rules : Show the rules of the server
 - links : Show some usefull links
 - botinfo : Show info anout Geisha
+- monney : Show your current account
+- daily : Get your daily reward
+- guild : Show the Boss of the server
+- global : Show the Boss in all the servers
 
 ```
 
