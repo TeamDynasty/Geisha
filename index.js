@@ -3,6 +3,7 @@
 const botconfig = require("./botconfig.json")
 const items = require("./items.json");
 const Discord = require('discord.js');
+const economy = require('discord-eco');
 const bot = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
@@ -47,7 +48,7 @@ bot.on("message", async message => {
 
   // MONEY ///////////////////////////////////////////////////
 
-  if (msgu === prefix + 'money' || msgu === prefix + 'balance') {
+  if (msg === prefix + 'money' || msg === prefix + 'balance') {
     message.channel.send({
       embed:{
         title: "Bank",
@@ -168,6 +169,59 @@ bot.on("message", async message => {
 
     }
 
+
+    let itemName = '';
+    let itemPrice = 0;
+    let itemDesc = '';
+
+    for (var i in items) {
+      if (args.join(" ").trim().toUpperCase() === items[i].name.toUpperCase()) {
+        itemName = items[i].name;
+        itemPrice = items[i].price;
+        itemDesc = items[i].desc;
+      }
+    }
+
+    if (itemName === '') {
+      return message.channel.send(`**Objet ${args.join(" ").trim()} non trouvé**`)
+    }
+
+    economy.fetchBalance(message.author.id + message.guild.id).then((i) => {
+      if (i.money < itemPrice) {
+        return message.channel.send(`Tu n'as pas assez d'argent, reviens des que tu auras assez`);
+      }
+
+
+      economy.updateBalace(message.author.id + message.guild.id, parseInt(`-${itemPrice}`)).then((i) => {
+        message.channel.send('**Tu as acheté ' + itemName + '!**');
+
+        if (itemName === 'dogs') {
+          message.guild.members.get(message.author.id).addRole(message.guild.roles.find("name", "Acheteur"));
+        }
+      })
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const embed = new Discord.RichEmbed()
     .setDescription("Produits disponibles")
     .setColor("#fb0700");
@@ -183,8 +237,14 @@ bot.on("message", async message => {
     }
 
 
-    message.channel.send({embed});
+    return message.channel.send({embed});
   }
+
+
+
+
+
+
 
 } catch(e) {
   message.reply(e.toString());
