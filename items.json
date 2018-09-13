@@ -2,7 +2,7 @@
   "dog": {
   "name":"dogs",
   "type":"Commande",
-  "prix":"300",
+  "price":"300",
   "desc":"Permet d'avoir des Photos / Vidéos random quand tu veux"
 }
 }
