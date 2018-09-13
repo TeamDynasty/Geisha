@@ -14,9 +14,9 @@
 - links : Show some usefull links
 - botinfo : Show info anout Geisha
 - monney : Show your current account
-- DAILY : Get your daily reward
-- GUILD : Show the Boss of the server
-- GLOBAL : Show the Boss in all the servers
+- daily : Get your daily reward
+- guild : Show the Boss of the server
+- global : Show the Boss in all the servers
 
 ```
 
