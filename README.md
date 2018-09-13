@@ -1,5 +1,7 @@
 ## Geisha
 
+INVITE HER : https://discordapp.com/oauth2/authorize?client_id=473232322129428500&scope=bot&permissions=268626168
+
 
 ```The assistant, who has a personnality```
 
