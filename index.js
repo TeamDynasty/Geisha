@@ -284,9 +284,9 @@ bot.on("message", async message => {
         .addField("botinfo", "Affiche les informations sur Geisha")
         .addField("links", "Affiche des liens utiles")
         .addField("money", "Affiche le contenu du porte monnaie")
-        .addField("DAILY", "Recuperer sa récompense quotidienne")
-        .addField("GUILD", "Affiche le Boss du serveur")
-        .addField("GLOBAL", "Affiche le boss de tous les serveurs")
+        .addField("daily", "Recuperer sa récompense quotidienne")
+        .addField("guild", "Affiche le Boss du serveur")
+        .addField("global", "Affiche le boss de tous les serveurs")
         .setFooter("Fin de la liste pour le moment");
       message.channel.send(help_embed);
       console.log("Commands");
@@ -300,11 +300,7 @@ bot.on("message", async message => {
       let linksembed = new Discord.RichEmbed()
       .setTitle("Liens Utiles")
       .setColor("#fb0700")
-      .addField("+-------- CRACKS --------+","***")
-      .addField("Crack de jeux", "https://cracked-games.org/")
-      .addField("Statut des cracks des jeux", "https://crackwatch.com/")
-      .addField("Tous les sites débloqués", "https://unblocked.vet/")
-      .addField("+-------- COURS --------+","***")
+      .addField("+-------- COURS IUT INFORMATIQUE --------+","***")
       .addField("Cours de l'année", "https://github.com/TeamDynasty/IUT-Doua")
       .addField("Cours des années précedentes", "https://repo.kuro.ml/courses-s1.git/");
 
