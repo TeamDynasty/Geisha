@@ -175,7 +175,7 @@ bot.on("message", async message => {
 
     var tempDesc = '';
 
-    for (var i = 0; i < category.lenght; i++) {
+    for (var i = 0; i < category.length; i++) {
       if (category[i] === items[c].type) {
         tempDesc += `${items[c].name} - $${items[c].price} - ${items[c].desc}\n`;
       }
