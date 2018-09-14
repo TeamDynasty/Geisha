@@ -1,8 +1,9 @@
 {
-  "dog": {
-  "name":"dogs",
-  "type":"Commande",
-  "price":"300",
-  "desc":"Permet d'avoir des Photos / Vidéos random quand tu veux"
+  "Master I": {
+  "name":"Master I",
+  "type":"Role",
+  "price":"3000",
+  "desc":"Donne accès a des channels réservés, et à certaines fonctionnalités"
 }
+
 }
