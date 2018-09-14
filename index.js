@@ -187,7 +187,7 @@ bot.on("message", async message => {
 
 
     const embed = new Discord.RichEmbed()
-    .setDescription("Produits disponibles")
+    .setDescription("Products availables")
     .setColor("#fb0700");
 
     for (var i = 0; i < category.length; i++) {
@@ -303,15 +303,15 @@ bot.on("message", async message => {
         .setColor("#FF0000")
         .setTitle("Commands list : ")
         .setColor("#fb0700")
-        .addField("help", "Affiche la liste des commandes possibles")
-        .addField("rules", "Affiche les règles du serveur")
-        .addField("botinfo", "Affiche les informations sur Geisha")
-        .addField("links", "Affiche des liens utiles")
-        .addField("money", "Affiche le contenu du porte monnaie")
-        .addField("daily", "Recuperer sa récompense quotidienne")
-        .addField("guild", "Affiche le Boss du serveur")
-        .addField("global", "Affiche le boss de tous les serveurs")
-        .setFooter("Fin de la liste pour le moment");
+        .addField("help", "Show commands possibles")
+        .addField("rules", "Show the rules of the server")
+        .addField("botinfo", "Show informations about the bot > Geisha <")
+        .addField("links", "Show useful links")
+        .addField("money", "Show the content of the wallet")
+        .addField("daily", "Get the daily reward")
+        .addField("guild", "Show the boss of the Serveur")
+        .addField("global", "Show the boss of all the serveurs")
+        .setFooter("End of the list for the moment");
       message.channel.send(help_embed);
       console.log("Commands");
   }
@@ -322,11 +322,10 @@ bot.on("message", async message => {
     if(cmd === `${prefix}links`) {
 
       let linksembed = new Discord.RichEmbed()
-      .setTitle("Liens Utiles")
+      .setTitle("Useful links")
       .setColor("#fb0700")
-      .addField("+-------- COURS IUT INFORMATIQUE --------+","***")
-      .addField("Cours de l'année", "https://github.com/TeamDynasty/IUT-Doua")
-      .addField("Cours des années précedentes", "https://repo.kuro.ml/courses-s1.git/");
+      .addField("+-------- Links Neotoxic --------+","***")
+      .addField("Github", "https://github.com/TeamDynasty");
 
       return message.channel.send(linksembed);
     }
@@ -336,16 +335,17 @@ bot.on("message", async message => {
 
 
   // >rules
+
   try {
     if(cmd === `${prefix}rules`) {
 
       let rulesembed = new Discord.RichEmbed()
-        .setTitle("Liste des Règles du Serveur")
+        .setTitle("Rules of the server")
         .setColor("#fb0700")
-        .addField("Ne doit pas avoir de caractère pornographique sauf dans le channel dédié.", "***")
-        .addField("Restez courtois, poli.", "***")
-        .addField("Pas de spam.", "***")
-        .addField("Pas de pub sur les différents chats sauf celui #pub.", "***");
+        .addField("Must not be pornographic messages or pictures except in the dedicated channel", "***")
+        .addField("Stay courteous, polite", "***")
+        .addField("No spam", "***")
+        .addField("No ads on different cats except the one #pub", "***");
 
       return message.channel.send(rulesembed);
     }
@@ -354,13 +354,14 @@ bot.on("message", async message => {
   }
 
   // >botinfo
+
   if(cmd === `${prefix}botinfo`) {
     let botembed = new Discord.RichEmbed()
-      .setDescription("Informations à propos de Geisha")
+      .setDescription("Informations about > Geisha <")
       .setColor("#fb0700")
-      .addField("Codé en", "JavaScript")
-      .addField("Codé par", "Neotoxic")
-      .addField("Version ", "0.1");
+      .addField("Coded in JavaScript", "***")
+      .addField("Coded by Neotoxic", "***")
+      .addField("Version 0.2.0", "***");
 
     return message.channel.send(botembed);
   }
