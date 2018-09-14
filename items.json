@@ -6,18 +6,18 @@
   "desc":"Donne accès aux commandes : dog / cat / gif / et la classe Master II"
 },
 
-"Master II": {
+  "Master II": {
   "name":"Master II",
   "type":"Role",
   "price":"10000",
   "desc":"Donne accès aux commandes : event /  / et la classe Master III"
 },
 
-"Master III": {
+  "Master III": {
   "name":"Master III",
   "type":"Role",
   "price":"100000",
   "desc":"Donne accès aux commandes :  / et la classe Master IV"
-}
+},
 
 }
