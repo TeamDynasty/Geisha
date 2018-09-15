@@ -33,6 +33,7 @@ INVITE HER : https://discordapp.com/oauth2/authorize?client_id=47323232212942850
 Packages :
 npm install discord.js
 npm install moment
+npm install discord-eco
 ```
 
 
