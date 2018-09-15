@@ -81,7 +81,7 @@ bot.on("message", async message => {
     }
 
     economy.updateBalance(defineduser + message.guild.id, arg[0]).then((i) => {
-      message.channel.send(`**User defined had ${arg[0]} added from their account**`)
+      message.channel.send(`**User defined had ${arg[0]} added from their account**`);
     })
 
   }
