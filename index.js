@@ -3,9 +3,11 @@
 const botconfig = require("./botconfig.json")
 const items = require("./items.json");
 const Discord = require('discord.js');
+const economy = require('discord-eco');
 const bot = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
+const modRole = 'Admin';
 
 // STORAGE ///////////////////////////////////////////////////
 
@@ -30,6 +32,9 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
+  let cont = message.content.slice(prefix.length).split(" ");
+  let arg = cont.slice(1);
+
 
   if (bot.user.id === message.author.id) return;
 
@@ -46,6 +51,47 @@ bot.on("message", async message => {
   });
 
   // MONEY ///////////////////////////////////////////////////
+
+
+  if (msg === prefix + 'givemoney') {
+
+    if (!message.member.roles.find("name", modRole)) {
+      message.channel.send("** You don't have the rights to do that, you need Admin Role**");
+      return;
+    }
+
+
+    if (!arg[0]) {
+      message.channel.send("** Define an amount ! Usage: >givemoney <amount> <user>");
+      return;
+    }
+
+    if (isNan(arg[0])) {
+      message.channel.send('The amount has to be a number ! Usage: >givemoney <amount> <user>');
+      return;
+    }
+
+
+    let defineduser = '';
+    if (!arg[1]) {
+      defineduser = message.auhtor.id;
+    } else {
+      let firstMentionned = message.mentions.users.first();
+      defineduser = firstMentionned.id;
+    }
+
+    economy.updateBalance(defineduser + message.guild.id, arg[0]).then((i) => {
+      message.channel.send(`**User defined had ${arg[0]} added from their account**`)
+    })
+
+  }
+
+
+
+
+
+
+
 
   if (msg === prefix + 'money' || msg === prefix + 'balance') {
     message.channel.send({
