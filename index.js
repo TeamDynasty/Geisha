@@ -52,7 +52,7 @@ bot.on("message", async message => {
 
   // MONEY ///////////////////////////////////////////////////
 
-
+try {
   if (msg === prefix + 'givemoney') {
 
     if (!message.member.roles.find("name", modRole)) {
@@ -85,6 +85,9 @@ bot.on("message", async message => {
     })
 
   }
+} catch(e) {
+  message.reply(e.toString());
+}
 
 
 
@@ -414,4 +417,3 @@ bot.on("message", async message => {
 });
 
 bot.login(process.env.BOT_TOKEN);
-// login /////
