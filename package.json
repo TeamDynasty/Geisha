@@ -4,7 +4,8 @@
   "description": "Discord bot for security and peace",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^11.3.2",
+    "discord-eco": "0.0.10",
+    "discord.js": "^11.4.2",
     "fs-extra": "^7.0.0",
     "moment": "^2.22.2"
   },
