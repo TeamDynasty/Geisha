@@ -1,13 +1,13 @@
 // CONNEXION ///////////////////////////////////////////////////
 
-const botconfig = require("./botconfig.json")
+const botconfig = require("./botconfig.json");
+const modRole = require("./botconfig.json");
 const items = require("./items.json");
 const Discord = require('discord.js');
 const economy = require('discord-eco');
 const bot = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
-const modRole = 'Admin';
 
 // STORAGE ///////////////////////////////////////////////////
 
@@ -55,7 +55,7 @@ bot.on("message", async message => {
 try {
   if (msg === prefix + 'givemoney') {
 
-    if (!message.member.roles.find("name", modRole)) {
+    if(!message.member.roles.find(role => role.id===modRole)) {
       message.channel.send("** You don't have the rights to do that, you need Admin Role**");
       return;
     }
