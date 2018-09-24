@@ -15,10 +15,6 @@ INVITE HER : https://discordapp.com/oauth2/authorize?client_id=47323232212942850
 - rules : Show the rules of the server
 - links : Show some usefull links
 - botinfo : Show info anout Geisha
-- monney : Show your current account
-- daily : Get your daily reward
-- guild : Show the Boss of the server
-- global : Show the Boss in all the servers
 
 ```
 
